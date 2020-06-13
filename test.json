@@ -1,0 +1,162 @@
+[
+  {
+    "category": "Electronics",
+    "subcategory": "Laptop",
+    "data_value": "Laptop"
+  },
+  {
+    "category": "Electronics",
+    "subcategory": "Iphone",
+    "data_value": "Iphone"
+  },
+  {
+    "category": "Electronics",
+    "subcategory": "Microsoft",
+    "data_value": "Microsoft"
+  },
+  {
+    "category": "Electronics",
+    "subcategory": "Monitors",
+    "data_value": "Monitors"
+  },
+  {
+    "category": "Real State",
+    "subcategory": "Farms",
+    "data_value": "Farms"
+  },
+  {
+    "category": "Real State",
+    "subcategory": "Gym",
+    "data_value": "Gym"
+  },
+  {
+    "category": "Real State",
+    "subcategory": "Hospitals",
+    "data_value": "Hospitals"
+  },
+  {
+    "category": "Real State",
+    "subcategory": "Parolurs",
+    "data_value": "Parolurs"
+  },
+  {
+    "category": "Restaurants",
+    "subcategory": "Cafe",
+    "data_value": "Cafe"
+  },
+  {
+    "category": "Restaurants",
+    "subcategory": "Fast food",
+    "data_value": "Fast_food"
+  },
+  {
+    "category": "Restaurants",
+    "subcategory": "Restaurants",
+    "data_value": "Restaurants"
+  },
+  {
+    "category": "Restaurants",
+    "subcategory": "Food Track",
+    "data_value": "Food_Track"
+  },
+  {
+    "category": "Shoppings",
+    "subcategory": "Mens Wears",
+    "data_value": "Mens_Wears"
+  },
+  {
+    "category": "Shoppings",
+    "subcategory": "Accessories",
+    "data_value": "Accessories"
+  },
+  {
+    "category": "Shoppings",
+    "subcategory": "Kids Wears",
+    "data_value": "Kids_Wears"
+  },
+  {
+    "category": "Shoppings",
+    "subcategory": "It & Software",
+    "data_value": "It_Software"
+  },
+  {
+    "category": "Jobs",
+    "subcategory": "It Jobs",
+    "data_value": "It_Jobs"
+  },
+  {
+    "category": "Jobs",
+    "subcategory": "Cleaning & Washing",
+    "data_value": "Cleaning_Washing"
+  },
+  {
+    "category": "Jobs",
+    "subcategory": "Management",
+    "data_value": "Management"
+  },
+  {
+    "category": "Jobs",
+    "subcategory": "Voluntary Works",
+    "data_value": "Voluntary_Works"
+  },
+  {
+    "category": "Vehicles",
+    "subcategory": "Bus",
+    "data_value": "Bus"
+  },
+  {
+    "category": "Vehicles",
+    "subcategory": "Cars",
+    "data_value": "Cars"
+  },
+  {
+    "category": "Vehicles",
+    "subcategory": "Motor Bike",
+    "data_value": "Motor_Bike"
+  },
+  {
+    "category": "Vehicles",
+    "subcategory": "Rent a car",
+    "data_value": "Rent_a_car"
+  },
+  {
+    "category": "Pets",
+    "subcategory": "Cats",
+    "data_value": "Cats"
+  },
+  {
+    "category": "Pets",
+    "subcategory": "Dogs",
+    "data_value": "Dogs"
+  },
+  {
+    "category": "Pets",
+    "subcategory": "Birds",
+    "data_value": "Birds"
+  },
+  {
+    "category": "Pets",
+    "subcategory": "Others",
+    "data_value": "Others"
+  },
+  {
+    "category": "Services",
+    "subcategory": "Cleaning",
+    "data_value": "Cleaning"
+  },
+  {
+    "category": "Services",
+    "subcategory": "Car Washing",
+    "data_value": "Car_Washing"
+  },
+  {
+    "category": "Services",
+    "subcategory": "Clothing",
+    "data_value": "Clothing"
+  },
+  {
+    "category": "Services",
+    "subcategory": "Business",
+    "data_value": "Business"
+  }
+]

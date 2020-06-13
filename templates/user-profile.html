@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!--==================================
+=            User Profile            =
+===================================-->
+
+<section class="user-profile section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 offset-md-1 col-lg-3 offset-lg-0">
+				<div class="sidebar">
+					<!-- User Widget -->
+					<div class="widget user">
+						<!-- User Image -->
+						<div class="image d-flex justify-content-center">
+
+							{% load static %}
+							<img src="{{user.profile_image}}" alt="My image"/>
+							
+
+							<!-- <img src="{% static 'images/user/user-thumb.jpg' %}" alt="" class=""> -->
+						</div>
+						<!-- User Name -->
+						<h5 class="text-center">{{ user.first_name}} {{ user.last_name}}</h5>
+					</div>
+					<!-- Dashboard Links -->
+					<div class="widget dashboard-links">
+						<ul>
+							<li><a class="my-1 d-inline-block" href="">Savings Dashboard</a></li>
+							<li><a class="my-1 d-inline-block" href="">Saved Offer <span>(5)</span></a></li>
+							<li><a class="my-1 d-inline-block" href="">Favourite Stores <span>(3)</span></a></li>
+							<li><a class="my-1 d-inline-block" href="">Recommended</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-10 offset-md-1 col-lg-9 offset-lg-0">
+				<!-- Edit Profile Welcome Text -->
+				<div class="widget welcome-message">
+					<h2>Edit profile</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+				</div>
+				<!-- Edit Personal Info -->
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="widget personal-info">
+							<h3 class="widget-header user">Edit Personal Information</h3>
+							<form method="post" action="/users/update_profile" enctype="multipart/form-data">
+
+								{% csrf_token %}
+
+								<!-- First Name -->
+								<div class="form-group">
+									<label for="first-name">First Name</label>
+									<input name="first_name" placeholder="Enter your first name. . ." type="text" class="form-control" id="first-name" value="{{ user.first_name }}">
+								</div>
+								<!-- Last Name -->
+								<div class="form-group">
+									<label for="last-name">Last Name</label>
+									<input name="last_name" placeholder="Enter your last name. . ." type="text" class="form-control" id="last-name" value="{{ user.last_name }}">
+								</div>
+								<!-- File chooser -->
+								<div class="form-group choose-file d-inline-flex">
+									<i class="fa fa-user text-center px-3"></i>
+									<input name="profile_image" type="file" class="form-control-file mt-2 pt-1" id="input-file" value="">
+								 </div>
+								<!-- Comunity Name -->
+								<div class="form-group">
+									<label for="comunity-name">Comunity Name</label>
+									<input name="user_name" placeholder="Enter your comunity name. . ." value="{{user.user_name}}" type="text" class="form-control" id="comunity-name">
+								</div>
+								<!-- contact number -->
+								<div class="form-group">
+									<label for="comunity-name">Contact Number</label>
+			                        <input type="text" name="contact_number" placeholder="Enter your contact number. . ." class="form-control" value="{{user.contact_number}}">
+								</div>
+								<!-- Checkbox -->
+								<div class="form-check">
+								  <label class="form-check-label" for="hide-profile">
+									<input class="form-check-input mt-1" type="checkbox" value="" id="hide-profile">
+									Hide Profile from Public/Comunity
+								  </label>
+								</div>
+								<!-- Zip Code -->
+								<div class="form-group">
+									<label for="zip_code">Address</label>
+									<input name="zip_code" type="text" class="form-control" id="zip_code" value="{{user.zip_code}}">
+								</div>
+							<label for="city">City</label>
+                            <select name="city" id="cityselect" class="w-100">
+                                <option value="">Select City</option>
+                                <option value="Stockholm">Stockholm</option>
+                                <option value="Gothenburg">Gothenburg</option>
+                                <option value="Malmo">Malmo</option>
+                                <option value="Luleo">Luleo</option>
+                                <option value="Boden">Boden</option>
+                                <option value="Gavle">Gavle</option>
+                                <option value="Orebro">Orebro</option>
+                                <option value="Jenkoping">Jenkoping</option>
+                                <option value="Varnamo">Varnamo</option>
+                                <option value="Ovik">Ovik</option>
+                            </select><br><br>
+								<!-- Submit button -->
+								<button class="btn btn-transparent">Save My Changes</button>
+							</form>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6">
+						<!-- Change Password -->
+					<div class="widget change-password">
+						<h3 class="widget-header user">Edit Password</h3>
+						<form method="post" action="/users/update_profile" enctype="multipart/form-data">
+
+								{% csrf_token %}
+							<!-- Current Password -->
+							<div class="form-group">
+								<label for="current-password">Current Password</label>
+								<input name="current_password" type="password" class="form-control" id="current-password">
+							</div>
+							<!-- New Password -->
+							<div class="form-group">
+								<label for="new-password">New Password</label>
+								<input name="new_password1" type="password" class="form-control" id="new-password">
+							</div>
+							<!-- Confirm New Password -->
+							<div class="form-group">
+								<label for="confirm-password">Confirm New Password</label>
+								<input name="new_password2" type="password" class="form-control" id="confirm-password">
+							</div>
+							<!-- Submit Button -->
+							<button class="btn btn-transparent">Change Password</button>
+						</form>
+					</div>
+					<!-- Change Email Address -->
+					<div class="widget change-email mb-0">
+						<h3 class="widget-header user">Edit Email Address</h3>
+						<form method="post" action="/users/update_profile" enctype="multipart/form-data">
+
+								{% csrf_token %}
+							<!-- Current Password -->
+							<div class="form-group">
+								<label for="current-email">Current Email</label>
+								<input name="current_email" type="email" class="form-control" id="current-email">
+							</div>
+							<!-- New email -->
+							<div class="form-group">
+								<label for="new-email">New email</label>
+								<input name="new_email" type="email" class="form-control" id="new-email">
+							</div>
+							<!-- Submit Button -->
+							<button class="btn btn-transparent">Change email</button>
+						</form>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script  src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+<script type="text/javascript">
+	$('#cityselect').val('{{user.city}}').change()
+</script>
+
+
+{% endblock  %}
+

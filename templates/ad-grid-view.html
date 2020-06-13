@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<section class="page-search">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Advance Search -->
+				<div class="advance-search">
+					<form  action="/ads/search" method="POST">
+
+						{% csrf_token %}
+
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<input name="search_text" type="text" class="form-control my-2 my-lg-0" id="inputtext4" placeholder="What are you looking for">
+							</div>
+							<div class="form-group col-md-3">
+								<select name="category" class="w-100 form-control mt-lg-1 mt-md-2">
+									<option>Category</option>
+									<option value="Top rated">Top rated</option>
+									<option value="Lowest Price">Lowest Price</option>
+									<option value="Highest Price">Highest Price</option>
+								</select>
+							</div>
+							<div class="form-group col-md-3">
+								<input name="location" type="text" class="form-control my-2 my-lg-0" id="inputLocation4" placeholder="Location">
+							</div>
+							<div class="form-group col-md-2">
+								
+								<button type="submit" class="btn btn-primary">Search Now</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section-sm">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="search-result bg-gray">
+					<h2>Results</h2>
+					<!-- <p>123 Results</p> -->
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="category-sidebar">
+					<div class="widget category-list">
+						<h4 class="widget-header">All Category</h4>
+						<ul class="category-list">
+							<li><a href="/ads/search/Laptop">Laptops <span>{{ ads_number.Laptop }}</span></a></li>
+							<li><a href="/ads/search/Iphone">Iphone <span>{{ads_number.Iphone}}</span></a></li>
+							<li><a href="/ads/search/Microsoft">Microsoft  <span>{{ads_number.Microsoft}}</span></a></li>
+							<li><a href="/ads/search/Monitors">Monitors <span>{{ads_number.Monitors}}</span></a></li>
+						</ul>
+					</div>
+
+					<div class="widget category-list">
+						<h4 class="widget-header">Nearby</h4>
+						<ul class="category-list">
+							<li><a href="/ads/search/Stockholm">Stockholm<span>{{ location.Stockholm }}</span></a></li>
+							<li><a href="/ads/search/Gothenburg">Gothenburg<span>{{ location.Gothenburg }}</span></a></li>
+							<li><a href="/ads/search/Malmo">Malmo<span>{{ location.Malmo }}</span></a></li>
+							<li><a href="/ads/search/Luleo">Luleo<span>{{ location.Luleo }}</span></a></li>
+							<li><a href="/ads/search/Boden">Boden<span>{{ location.Boden }}</span></a></li>
+							<li><a href="/ads/search/Gavle">Gavle<span>{{ location.Gavle }}</span></a></li>
+							<li><a href="/ads/search/Orebro">Orebro<span>{{ location.Orebro }}</span></a></li>
+						</ul>
+					</div>
+
+					<div class="widget filter">
+						<h4 class="widget-header">Show Produts</h4>
+						<select name="shorting" id="shorting">
+							<option>Popularity</option>
+							<option value="Top rated">Top rated</option>
+							<option value="Lowest Price">Lowest Price</option>
+							<option value="Highest Price">Highest Price</option>
+						</select>
+					</div>
+
+					<div class="widget price-range w-100">
+						<h4 class="widget-header">Price Range</h4>
+						<div class="block">
+							<input id="price_range" class="range-track w-100" type="text" data-slider-min="0" data-slider-max="5000" data-slider-step="5"
+							data-slider-value="[0,5000]">
+							<div class="d-flex justify-content-between mt-2">
+								<span class="value">$10 - $5000</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="widget product-shorting">
+						<h4 class="widget-header">By Condition</h4>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input class="form-check-input" type="checkbox" value="">
+								Brand New
+							</label>
+						</div>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input class="form-check-input" type="checkbox" value="">
+								Almost New
+							</label>
+						</div>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input class="form-check-input" type="checkbox" value="">
+								Gently New
+							</label>
+						</div>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input class="form-check-input" type="checkbox" value="">
+								Havely New
+							</label>
+						</div>
+
+					</div>
+
+					<div class="widget product-shorting">
+						<button class="text-centre" onclick="applyFilters()">Apply Filters</button>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="category-search-filter">
+					<div class="row">
+						<div class="col-md-6">
+							<strong>Short</strong>
+							<select>
+								<option>Most Recent</option>
+								<option value="Most Popular">Most Popular</option>
+								<option value="Lowest Price">Lowest Price</option>
+								<option value="Highest Price">Highest Price</option>
+							</select>
+						</div>
+						<div class="col-md-6">
+							<div class="view">
+								<strong>Views</strong>
+								<ul class="list-inline view-switcher">
+									<li class="list-inline-item">
+										<a href="#" onclick="event.preventDefault();" class="text-info"><i class="fa fa-th-large"></i></a>
+									</li>
+									<li class="list-inline-item">
+										<a href="/ads/list"><i class="fa fa-reorder"></i></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="product-grid-list">
+					<div class="row mt-30">
+						{% for ad in ads %}
+						<div class="col-sm-12 col-lg-4 col-md-6">
+							<!-- product card -->
+							<div class="product-item bg-light">
+								<div class="card">
+									<div class="thumb-content">
+										<!-- <div class="price">$200</div> -->
+										<a href="/ads/{{ad.id}}">
+											<img style="max-height: 125px; max-width:100%;" class="card-img-top img-fluid" src="{{ad.ad_img}}" alt="Card image cap">
+										</a>
+									</div>
+									<div class="card-body">
+										<h4 class="card-title"><a href="single.html">{{ad.title}}</a></h4>
+										<ul class="list-inline product-meta">
+											<li class="list-inline-item">
+												<a href="single.html"><i class="fa fa-folder-open-o"></i>{{ad.category}}</a>
+											</li>
+											<li class="list-inline-item">
+												<a href="#"><i class="fa fa-calendar"></i>{{ad.post_date}}</a>
+											</li>
+										</ul>
+									{% if ad.description|length > 0 %}
+
+										<p class="card-text">{{ad.description|slice:"0:20"}} . . .</p>
+									{% else %}
+										<p class="card-text">No description</p>
+									 {% endif %}
+										<div class="product-ratings">
+										<ul class="list-inline">
+										{% if ad.rating > 0 %}
+											{% with ''|center:ad.rating as range %}
+											{% for _ in range %}
+											<li class="list-inline-item">
+												<i class="fa fa-star" style="color:orange"></i>
+											</li>
+											{% endfor %}
+											{% endwith %}
+										{% else %}
+											<li class="list-inline-item">
+												<i class="fa fa-star" style="color:solid grey"></i>
+											</li>											
+											<li class="list-inline-item">
+												<i class="fa fa-star" style="color:solid grey"></i>
+											</li>											
+											<li class="list-inline-item">
+												<i class="fa fa-star" style="color:solid grey"></i>
+											</li>											                          <li class="list-inline-item">
+												<i class="fa fa-star" style="color:solid grey"></i>
+											</li>											  						  <li class="list-inline-item">
+												<i class="fa fa-star" style="color:solid grey"></i>
+											</li>
+										{% endif %}
+										</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="pagination justify-content-center">
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+						<li class="page-item">
+							{% if ads.has_previous %}
+
+							<a class="page-link" href="?page={{ ads.previous_page_number }}" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+								<span class="sr-only">Previous</span>
+							</a>
+							{% endif %}
+
+							{% for num in ads.paginator.page_range %}
+							{% if ads.number == num %}
+							<li class="page-item active"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+							{% else %}
+							<li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+							{% endif %}
+							{% endfor %}
+
+						</li>
+						<li class="page-item">
+							{% if ads.has_next %}
+							<a class="page-link" href="?page={{ ads.next_page_number }}" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+								<span class="sr-only">Next</span>
+							</a>
+							{% endif %}
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+
+<script type="text/javascript">
+
+	function applyFilters(){
+
+		var price_min = document.getElementById('price_range').value.split(",")[0]
+		var price_max = document.getElementById('price_range').value.split(",")[1]
+		var shorting = document.getElementById('shorting').value
+		console.log(price_min, price_max, shorting)
+		var redirect_link = window.location.href
+		    redirect_link = redirect_link.toString();
+		var split_url = redirect_link.includes("?")
+
+		if (split_url) {
+			redirect_link = redirect_link.split("?")[0]
+		}else{
+			redirect_link = redirect_link
+		}
+
+		redirect_link = redirect_link
+			+ '?price_min=' + Math.floor(price_min) + '&' 
+			+ 'price_max=' + Math.floor(price_max) + '&'
+			+ 'shortby=' + shorting
+		console.log(redirect_link)
+		window.location.href = redirect_link
+	}
+
+</script>
+
+{% endblock  %}
